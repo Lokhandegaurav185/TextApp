@@ -48,11 +48,11 @@ function App() {
   }
   return (
     <>
-   <Alert alert={alert}/>
    {/* <Form heading="Enter text into below box" mode={mode} showAlert={showAlert} /> */}
    {/* <About />  */}
     <Router>
     <Navbar textHeading="TextChanger" mode={mode} toggleMode={toggleMode}/>
+    <Alert alert={alert}/>
         <Routes>
           <Route exact path="/" element={<Form heading="Enter text into below box" mode={mode} showAlert={showAlert} />}></Route>
           <Route exact path="/about" element={<About />}></Route>       

@@ -42,16 +42,16 @@ export default function Form(props) {
             <label htmlFor="form" className="form-label"></label>
             <textarea className="form-control" id="form" rows="7"value={Text} onChange={handleToClick}style={{backgroundColor: props.mode==='dark'?'#216375':'white',color: props.mode==='dark'?'white':'black'}}></textarea>
             </div>
-            <button className="btn btn-danger" onClick={convertToUppercase}>To uppercase</button>
-            <button className="btn btn-danger mx-2" onClick={convertToLowercase}>To Lowercase</button>
-            <button className="btn btn-danger mx-2" onClick={clearText}>Clear Text</button>
-            <button className="btn btn-danger mx-2" onClick={copyText}>Copy Text</button>
-            <button className="btn btn-danger mx-2" onClick={removeExtraSpace}>Remove Extra Space</button>
+            <button disabled={Text.length===0} className="btn btn-danger mx-1 my-1" onClick={convertToUppercase}>To uppercase</button>
+            <button disabled={Text.length===0} className="btn btn-danger mx-1 my-1" onClick={convertToLowercase}>To Lowercase</button>
+            <button disabled={Text.length===0} className="btn btn-danger mx-1 my-1" onClick={clearText}>Clear Text</button>
+            <button disabled={Text.length===0} className="btn btn-danger mx-1 my-1" onClick={copyText}>Copy Text</button>
+            <button disabled={Text.length===0} className="btn btn-danger mx-1 my-1" onClick={removeExtraSpace}>Remove Extra Space</button>
         </div>
         <div className="container"style={{color: props.mode==='dark'?'white':'black'}}>
             <h2>Text counter here</h2>
-            <p>{Text.split(" ").filter((a1)=>{return a1.length!==0}).length} words and {Text.length} characters</p>
-            <p>Reading time is {0.008*Text.split(" ").length} in minutes</p>
+            <p>{Text.split(/\s+/).filter((a1)=>{return a1.length!==0}).length} words and {Text.length} characters</p>
+            <p>Reading time is {0.008*Text.split(" ").filter((a1)=>{return a1.length!==0}).length} in minutes</p>
             <h3>Preview of text</h3>
             <p>{Text.length>0?Text:"Write something in textbox"}</p>
         </div>
