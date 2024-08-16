@@ -50,7 +50,7 @@ export default function Form(props) {
         </div>
         <div className="container"style={{color: props.mode==='dark'?'white':'black'}}>
             <h2>Text counter here</h2>
-            <p>{Text.split(" ").length} words and {Text.length} characters</p>
+            <p>{Text.split(" ").filter((a1)=>{return a1.length!==0}).length} words and {Text.length} characters</p>
             <p>Reading time is {0.008*Text.split(" ").length} in minutes</p>
             <h3>Preview of text</h3>
             <p>{Text.length>0?Text:"Write something in textbox"}</p>
